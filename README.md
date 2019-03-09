@@ -33,7 +33,7 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   imports: [
-+   StickybitsModule.forRoot(),
++   StickybitsModule,
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
@@ -67,12 +67,8 @@ When `usesStickyClasses` is set to `true`, the following classes will be added o
 
 - `is-sticky` if the selected element is sticky
 - `is-stuck` if the selected element is stopped at the bottom of its parent
-- `stickybit-parent` so that styles can easily be added to the parent of a sticky element
-
-- applied when element is stuck = 'is-stuck';
-- applied when element is sticky = 'is-sticky';
-- applied when chaning sticky state - 'is-sticky-change';
-- class applied on parent element - 'is-sticky-parent';
+- `is-sticky-change` applied on sticky element when changing from sticky to stuck
+- `is-sticky-parent` so that styles can easily be added to the parent of a sticky element
 
 ## Browser Compatibility
 
