@@ -1,0 +1,28 @@
+{
+  "name": "ngx-stickybits",
+  "version": "0.0.1",
+  "description": "Angular sticky directive using Stickybits, a lightweight alternative to `position: sticky` polyfills",
+  "homepage": "https://github.com/jfcere/ngx-stickybits",
+  "license": "MIT",
+  "author": {
+    "name": "Jean-Francois Cere",
+    "email": "jfcere@sherweb.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jfcere/ngx-stickybits"
+  },
+  "keywords": [
+    "angular",
+    "ngx",
+    "stickybits",
+    "sticky"
+  ],
+  "dependencies": {
+    "stickybits": "^3.6.4"
+  },
+  "peerDependencies": {
+    "@angular/common": "^6.0.0 || ^7.0.0",
+    "@angular/core": "^6.0.0 || ^7.0.0"
+  }
+}
