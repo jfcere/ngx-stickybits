@@ -1,7 +1,7 @@
 # ngx-stickybits
 Angular sticky directive using [Stickybits](https://github.com/dollarshaveclub/stickybits), a lightweight alternative to `position: sticky` polyfills.
 
-> :alarm-clock: The project is still a Work-In-Progress and may be subject to major changes.
+> :alarm_clock: The project is still a Work-In-Progress and may be subject to major changes.
 
 ### Table of contents
 
