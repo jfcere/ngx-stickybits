@@ -6,12 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-
-  onSticky(sticky: boolean) {
-    console.log(sticky ? '+ STICKY' : '- UNSTICK');
-  }
-
-  onStuck(stuck: boolean) {
-    console.log(stuck ? '+ STUCK' : '- UNSTUCK');
-  }
+  blueSticky = false;
+  blueStuck = false;
+  greenSticky = false;
+  greenStuck = false;
+  redSticky = false;
+  redStuck = false;
 }
