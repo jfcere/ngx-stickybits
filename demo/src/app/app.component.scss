@@ -14,7 +14,7 @@
 }
 
 .red {
-  background: rgba(255, 0, 0, 0.54);
+  background: rgb(255, 60, 0);
 }
 
 .emoji {
@@ -26,16 +26,48 @@
   text-align: center;
 }
 
-.some-sticky-parent {
+.navbar {
+  background: #fafafa;
+  border-bottom: 1px solid #ddd;
+  font-size: 1em;
+  height: 80px;
+  margin-bottom: 16px;
+  transition: all 250ms ease-out;
+  z-index: 1;
+
+  h1 {
+    margin: 0;
+  }
+
+  &.sb-sticky-change {
+    height: 64px;
+    font-size: 0.8em;
+  }
+}
+
+.some-sticky-parent,
+.some-sticky-event {
+  color: white;
   border-radius: 5px;
-  height: 100vh;
-  margin: 24px 0;
+}
+
+.some-sticky-element,
+.some-sticky-event {
+  padding: 24px;
+}
+
+.some-sticky-parent {
+  height: 500px;
 }
 
 .some-sticky-element {
   background: rgba(0,0,0,0.54);
   border-radius: 5px 5px 0 0;
-  color: white;
-  padding: 24px 24px 24px 56px;
+  padding-left: 56px;
   position: relative;
+}
+
+.some-sticky-event {
+  border-left: 48px solid rgba(0,0,0,0.54);
+  padding-left: 16px;
 }

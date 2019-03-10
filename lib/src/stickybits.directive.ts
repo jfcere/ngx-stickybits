@@ -35,12 +35,6 @@ export class StickybitsDirective implements AfterContentInit, OnChanges, OnDestr
   @Output() sticky = new EventEmitter<boolean>();
   @Output() stuck = new EventEmitter<boolean>();
 
-  private get verticalPosition() {
-    return this.stickToBottom
-      ? 'bottom'
-      : 'top';
-  }
-
   constructor(
     private elementRef: ElementRef,
     @Inject(PLATFORM_ID) private platformId: string,
@@ -66,7 +60,7 @@ export class StickybitsDirective implements AfterContentInit, OnChanges, OnDestr
   }
 
   private init() {
-    this.destroy();
+    // this.destroy();
     const element = this.elementRef.nativeElement as HTMLElement;
     if (element) {
       // setup stickybits
@@ -77,7 +71,7 @@ export class StickybitsDirective implements AfterContentInit, OnChanges, OnDestr
         stickyClass: this.stickyClass,
         stuckClass: this.stuckClass,
         useStickyClasses: true, // this.useStickyClasses,
-        verticalPosition: this.verticalPosition,
+        verticalPosition: this.stickToBottom ? 'bottom' : 'top',
       });
       // observe for class changes to emit output events
       this.classListObserver = new MutationObserver((mutations: MutationRecord[]) => {

@@ -1,28 +1,59 @@
-<h1>ngx-stickybits</h1>
-
-<p>
-  <b>Scroll down</b> to see section headers become sticky when scrolled to.
-</p>
-
-<div class="some-sticky-parent blue">
-  <div class="some-sticky-element" stickybits (sticky)="onSticky($event)" (stuck)="onStuck($event)">
-    <span class="emoji">🤘</span>
-    <b>Stickybits</b> makes it easy to stick an element to its parent!
-  </div>
+<div class="navbar" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px" stickybits>
+  <h1>🍬 ngx-stickybits</h1>
+  <span fxFlex></span>
+  <span class="secondary-text">Crafted with ❤️ by <b>jfcere</b></span>
+  <a class="button github-button" href="https://github.com/jfcere/ngx-stickybits">
+    <img class="icon" src="assets/github-circle.svg" title="github">
+    Follow on Github
+  </a>
 </div>
 
-<div class="some-sticky-parent green">
-  <div class="some-sticky-element" stickybits>
-    <span class="emoji">🔥</span>
-    <b>Stickybits</b> can apply Css classes to parent and sticky element according to sticky/stuck state.
+<div fxLayout="row" fxLayoutGap="16px">
+  <div fxLayout="column" fxLayoutGap="16px" fxFlex>
+    <p>
+      🔻 <b>Scroll down</b> to see section headers become sticky when scrolled to
+    </p>
+
+    <div class="some-sticky-parent blue">
+      <div class="some-sticky-element" stickybits [stickyOffset]="64" (sticky)="blueSticky = $event" (stuck)="blueStuck = $event">
+        <span class="emoji">🤘</span>
+        <b>Stickybits</b> makes it easy to stick an element to its parent!
+      </div>
+    </div>
+
+    <div class="some-sticky-parent green">
+      <div class="some-sticky-element" stickybits [stickyOffset]="64" (sticky)="greenSticky = $event" (stuck)="greenStuck = $event">
+        <span class="emoji">🔥</span>
+        <b>Stickybits</b> can apply Css classes to parent and sticky element according to sticky/stuck state.
+      </div>
+    </div>
+
+    <div class="some-sticky-parent red">
+      <div class="some-sticky-element" stickybits [stickyOffset]="64" (sticky)="redSticky = $event" (stuck)="redStuck = $event">
+        <span class="emoji">💪</span>
+        <b>Stickybits</b> has a greater browser support than <code>position: sticky</code> including IE 9+
+      </div>
+    </div>
+  </div>
+
+  <div fxLayout="column" fxLayoutGap="16px" fxFlex fxFlexAlign="flex-start" stickybits [stickyOffset]="80">
+    <p>
+      👁️‍🗨️ Emmitted values from <code>sticky</code> and <code>stuck</code> @Output properties
+    </p>
+
+    <div class="some-sticky-event blue">
+      <div><b>sticky</b> is <code>{{ !!blueSticky }}</code></div>
+      <div><b>stuck</b> is <code>{{ !!blueStuck }}</code></div>
+    </div>
+
+    <div class="some-sticky-event green">
+      <div><b>sticky</b> is <code>{{ !!greenSticky }}</code></div>
+      <div><b>stuck</b> is <code>{{ !!greenStuck }}</code></div>
+    </div>
+
+    <div class="some-sticky-event red">
+      <div><b>sticky</b> is <code>{{ !!redSticky }}</code></div>
+      <div><b>stuck</b> is <code>{{ !!redStuck }}</code></div>
+    </div>
   </div>
 </div>
-
-<div class="some-sticky-parent red">
-  <div class="some-sticky-element" stickybits>
-    <span class="emoji">💪</span>
-    <b>Stickybits</b> has a greater browser support than <code>position: sticky</code> including IE 9+
-  </div>
-</div>
-
-<div style="height: 100vh">FILLER</div>
