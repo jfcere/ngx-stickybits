@@ -20,14 +20,14 @@ a.button {
   font-size: 14px;
   font-weight: bold;
   height: 36px;
-  padding: 0 12px;
+  padding: 0 6px;
   outline: none;
   text-align: center;
   text-decoration: none;
   transition: all 250ms ease-in-out;
 
-  .icon {
-    margin-right: 6px;
+  .icon + .text {
+    margin: 0 3px 0 6px;
   }
 
   &:hover {
