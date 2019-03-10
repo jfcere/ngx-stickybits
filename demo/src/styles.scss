@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fafafa;
+  font-family: Lato, Arial, Helvetica, sans-serif;
+}
+
+code {
+  background: rgba(0,0,0,0.34);
+  border-radius: 5px;
+  font-size: 1.15em;
+  padding: 2px 8px;
+  margin: 0 2px;
+}

@@ -1,0 +1,41 @@
+:host {
+  display: block;
+  max-width: 1100px;
+  margin: 16px auto;
+  padding: 0 16px;
+}
+
+.blue {
+  background: rgb(0, 60, 255);
+}
+
+.green {
+  background: rgb(0, 202, 17);
+}
+
+.red {
+  background: rgba(255, 0, 0, 0.54);
+}
+
+.emoji {
+  font-size: 32px;
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: 44px;
+  text-align: center;
+}
+
+.some-sticky-parent {
+  border-radius: 5px;
+  height: 100vh;
+  margin: 24px 0;
+}
+
+.some-sticky-element {
+  background: rgba(0,0,0,0.54);
+  border-radius: 5px 5px 0 0;
+  color: white;
+  padding: 24px 24px 24px 56px;
+  position: relative;
+}
