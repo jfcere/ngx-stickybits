@@ -59,9 +59,11 @@ export class AppModule { }
 
 | Property | Type | Default | Description |
 | -------- | ---- | ------- | ----------- |
-| @Input() useStickyClasses | boolean  | `false` | Add/remove classes from element according to it's sticky state (see details below)<br/> _This is expensive for the browser - better if can be avoided and remain 'false'_ |
-| @Input() stickyOffset | number | `0` | Desired offset from the top of the viewport to which the element will stick |
-| @Input() stickToBottom | boolean | `false` | Stick the element to the bottom instead of top |
+| @Input()<br/> useStickyClasses | boolean  | `false` | Add/remove classes from element according to it's sticky state (see details below) — _This is expensive for the browser, it is better if can be avoided and remain 'false'_ |
+| @Input()<br/> stickyOffset | number | `0` | Desired offset from the top of the viewport to which the element will stick |
+| @Input()<br/> stickToBottom | boolean | `false` | Stick the element to the bottom instead of top |
+| @Output()<br/> sticky | EventEmitter\<boolean\> | | Emits 'true' when element becomes sticky and 'false' when it becomes unsticky |
+| @Output()<br/> stuck | EventEmitter\<boolean\> | | Emits 'true' when element becomes stuck and 'false' when it becomes unstuck |
 
 When `usesStickyClasses` is set to `true`, the following classes will be added on elements:
 
@@ -97,6 +99,6 @@ Contributions are always welcome, just make sure that ...
 
 ## License
 
-I do not own rights for `Stickybits` and all the credits belong to them - see [DollarShaveClub/Stickybits](https://github.com/dollarshaveclub/stickybits) details.
+I do not own rights for `Stickybits` and all the credits belong to them — see [DollarShaveClub/Stickybits](https://github.com/dollarshaveclub/stickybits) for details.
 
-This package is licensed under [MIT](https://opensource.org/licenses/MIT) license - see [LICENSE](https://github.com/jfcere/ngx-stickybits/blob/master/LICENSE) file for details.
+This package is licensed under [MIT](https://opensource.org/licenses/MIT) license — see [LICENSE](https://github.com/jfcere/ngx-stickybits/blob/master/LICENSE) file for details.

@@ -5,16 +5,16 @@
 </p>
 
 <div class="some-sticky-parent blue">
-  <div class="some-sticky-element" stickybits>
+  <div class="some-sticky-element" stickybits (sticky)="onSticky($event)" (stuck)="onStuck($event)">
     <span class="emoji">🤘</span>
-    <b>Stickybits</b> make it easy to stick elements to its parent!
+    <b>Stickybits</b> makes it easy to stick an element to its parent!
   </div>
 </div>
 
 <div class="some-sticky-parent green">
   <div class="some-sticky-element" stickybits>
     <span class="emoji">🔥</span>
-    <b>Stickybits</b> can apply classes to parent and sticky elements depending sticky/stuck state.
+    <b>Stickybits</b> can apply Css classes to parent and sticky element according to sticky/stuck state.
   </div>
 </div>
 
@@ -24,3 +24,5 @@
     <b>Stickybits</b> has a greater browser support than <code>position: sticky</code> including IE 9+
   </div>
 </div>
+
+<div style="height: 100vh">FILLER</div>
