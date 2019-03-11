@@ -1,7 +1,11 @@
 :host {
   display: block;
+}
+
+.container {
+  height: 100%;
   max-width: 1100px;
-  margin: 16px auto;
+  margin: 0 auto;
   padding: 0 16px;
 }
 
@@ -27,8 +31,7 @@
 }
 
 .navbar {
-  background: #fafafa;
-  border-bottom: 1px solid #ddd;
+  background: #eee;
   font-size: 1em;
   height: 80px;
   margin-bottom: 16px;
@@ -39,7 +42,9 @@
     margin: 0;
   }
 
-  &.sb-sticky-change {
+  &.sb-sticky {
+    background: #fff;
+    box-shadow: 0 1px 0px rgba(0,0,0,0.14), 0 1px 6px 1px rgba(0,0,0,0.07);
     height: 64px;
     font-size: 0.8em;
   }
