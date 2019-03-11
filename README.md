@@ -43,7 +43,7 @@ export class AppModule { }
 
 ## Usage
 
-`ngx-stickybits` provides the `stickybits` directive to apply on element you want to be sticky.
+ngx-stickybits provides the `stickybits` directive to apply on element you want to be sticky.
 
 ```html
 <div class="some-stickybits-parent">
@@ -78,7 +78,15 @@ When `usesStickyClasses` is set to `true`, the following classes will be added o
 
 ## Demo Application
 
-Demo application is not available yet but is soon to come.
+Demo application is available @ https://jfcere.github.io/ngx-stickybits and its source code can be found inside the `demo` directory.
+
+The following commands will clone the repository, install npm dependencies and serve the application @ http://localhost:4200
+
+```bash
+git clone https://github.com/jfcere/ngx-stickybits.git
+npm install
+ng serve
+```
 
 ## Road map
 
