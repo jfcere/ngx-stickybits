@@ -1,6 +1,6 @@
 {
   "name": "ngx-stickybits",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Angular sticky directive using Stickybits, a lightweight alternative to `position: sticky` polyfills",
   "homepage": "https://github.com/jfcere/ngx-stickybits",
   "license": "MIT",
