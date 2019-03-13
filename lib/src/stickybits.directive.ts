@@ -1,15 +1,12 @@
-import { isPlatformBrowser } from '@angular/common';
 import {
   AfterContentInit,
   Directive,
   ElementRef,
   EventEmitter,
-  Inject,
   Input,
   OnChanges,
   OnDestroy,
   Output,
-  PLATFORM_ID,
   SimpleChanges,
  } from '@angular/core';
 import stickybits, { StickyBits } from 'stickybits';
@@ -18,7 +15,7 @@ import stickybits, { StickyBits } from 'stickybits';
   selector: '[stickybits]',
 })
 export class StickybitsDirective implements AfterContentInit, OnChanges, OnDestroy {
-  private classListObserver: MutationObserver;
+  private cssClassObserver: MutationObserver;
   private instance: StickyBits;
   private isSticky = false;
   private isStuck = false;
@@ -40,7 +37,6 @@ export class StickybitsDirective implements AfterContentInit, OnChanges, OnDestr
 
   constructor(
     private elementRef: ElementRef,
-    @Inject(PLATFORM_ID) private platformId: string,
   ) { }
 
   ngAfterContentInit() {
@@ -48,7 +44,7 @@ export class StickybitsDirective implements AfterContentInit, OnChanges, OnDestr
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (isPlatformBrowser(this.platformId) && this.instance) {
+    if (this.instance) {
       this.destroy();
       this.init();
     }
@@ -77,7 +73,7 @@ export class StickybitsDirective implements AfterContentInit, OnChanges, OnDestr
         verticalPosition: this.verticalPosition,
       });
       // observe for CSS class changes to emit output events
-      this.classListObserver = new MutationObserver((mutations: MutationRecord[]) => {
+      this.cssClassObserver = new MutationObserver((mutations: MutationRecord[]) => {
         mutations
           .filter(mutation => mutation.oldValue !== element.classList.value)
           .forEach(() => {
@@ -93,7 +89,7 @@ export class StickybitsDirective implements AfterContentInit, OnChanges, OnDestr
             }
           });
       });
-      this.classListObserver.observe(this.elementRef.nativeElement, {
+      this.cssClassObserver.observe(this.elementRef.nativeElement, {
         attributes: true,
         attributeOldValue: true,
         attributeFilter: ['class'],
@@ -105,7 +101,7 @@ export class StickybitsDirective implements AfterContentInit, OnChanges, OnDestr
     if (this.instance) {
       this.instance.cleanup();
       this.instance = null;
-      this.classListObserver.disconnect();
+      this.cssClassObserver.disconnect();
     }
   }
 }
