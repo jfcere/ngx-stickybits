@@ -59,18 +59,29 @@ export class AppModule { }
 
 | Property | Type | Default | Description |
 | -------- | ---- | ------- | ----------- |
-| @Input()<br/> useStickyClasses | boolean  | `false` | Add/remove classes from element according to it's sticky state (see details below) — _This is expensive for the browser, it is better if can be avoided and remain 'false'_ |
-| @Input()<br/> stickyOffset | number | `0` | Desired offset from the top of the viewport to which the element will stick |
-| @Input()<br/> stickToBottom | boolean | `false` | Stick the element to the bottom instead of top |
-| @Output()<br/> sticky | EventEmitter\<boolean\> | | Emits 'true' when element becomes sticky and 'false' when it becomes unsticky |
-| @Output()<br/> stuck | EventEmitter\<boolean\> | | Emits 'true' when element becomes stuck and 'false' when it becomes unstuck |
+| @Input() <br/> noStyles | boolean | `false` | To use StickyBits without inline styles except for `position: sticky` or `position: fixed` |
+| @Input() <br/> scrollEl | Element \| string | `window` | Desired scrolling element or DOM query selector |
+| @Input() <br/> parentClass | string | 'sticky-parent' | Applied CSS class on the parent of the sticky element |
+| @Input() <br/> stickyChangeClass | string | 'sticky--change' | Applied CSS class after the element is sticky for a certain duration of scroll - _By default this duration of scrolling is the height of the sticky element_ |
+| @Input() <br/> stickyChangeNumber | number | 0 | Description |
+| @Input() <br/> stickyClass | string | 'sticky' | Applied CSS class on element when it is _sticky_ |
+| @Input() <br/> stuckClass | string | 'stuck' | Applied CSS class on element when it is _stuck_ |
+| @Input() <br/> stickyOffset | number | 0 | Desired offset from the top of the viewport to which the element will stick |
+| @Input() <br/> useFixed | boolean | `false` | Enforce `position: fixed` instead of using `position: sticky` |
+| @Input() <br/> useGetBoundingClientRect | boolean | `false` | Do not use `offsetTop` provide the optional boolean `useGetBoundingClientRect` - _This feature is optimal when dealing with things like CSS calc which can throw off `offsetTop` calculations_ |
+| @Input() <br/> useStickyClasses | boolean | `true` | Add/remove classes from element according to it's sticky state (see details below) — _This is expensive for the browser, it is better if can be avoided and remain `false`_ |
+| @Input() <br/> verticalPosition | 'top' \| 'bottom' | 'top' | Stick element to the top/bottom of the viewport when vertically scrolled to |
+| @Output() <br/> sticky | EventEmitter\<boolean\> | | Emits `true` when element becomes sticky and `false` when it becomes unsticky |
+| @Output() <br/> stuck | EventEmitter\<boolean\> | | Emits `true` when element becomes stuck and `false` when it becomes unstuck |
 
-When `usesStickyClasses` is set to `true`, the following classes will be added on elements:
+> :warning: Right now events are only emitted when `useStickyClasses` is set to `true` as those are based on CSS class detection with `MutationObserver` which offers better browser compatibility then `IntersectionObserver` althought refactoring might be reconsidered in the future.
 
-- `is-sticky` if the selected element is sticky
-- `is-stuck` if the selected element is stopped at the bottom of its parent
-- `is-sticky-change` applied on sticky element when changing from sticky to stuck
-- `is-sticky-parent` so that styles can easily be added to the parent of a sticky element
+When `useStickyClasses` is set to `true`, the following CSS classes will be applied on elements (can be can be overwritten):
+
+- `sticky` if the selected element is sticky
+- `stuck` if the selected element is stopped at the bottom of its parent
+- `sticky--change` if the selected element is scrolling within the height of the sticky element (before it get sticky)
+- `sticky-parent` so that styles can easily be added to the parent of a sticky element
 
 ## Browser Compatibility
 
@@ -84,10 +95,11 @@ Demo application is not available yet but is soon to come.
 
 Here is the list of tasks that will be done on this library in a near future ...
 
+- ~~Publish demo on github pages~~
+- ~~Improve documentation~~
 - Add CircleCI integration
-- Publish demo on github pages
-- Add more Stickybits options
-- Improve documentation
+- Add unit tests
+- Add Module configuration (CSS classes, useFixed, noStyles, ...)
 
 ## Contribution
 

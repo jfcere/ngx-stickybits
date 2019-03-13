@@ -18,20 +18,23 @@ import stickybits, { StickyBits } from 'stickybits';
   selector: '[stickybits]',
 })
 export class StickybitsDirective implements AfterContentInit, OnChanges, OnDestroy {
-  // applied css classes
-  private readonly stickyClass = 'sb-sticky';
-  private readonly stuckClass = 'sb-stuck';
-  private readonly changeClass = 'sb-sticky-change';
-  private readonly parentClass = 'sb-sticky-parent';
-
   private classListObserver: MutationObserver;
-  private instance: StickyBits = null;
+  private instance: StickyBits;
   private isSticky = false;
   private isStuck = false;
 
-  @Input() stickyOffset = 0;
-  @Input() stickToBottom = false;
-  @Input() useStickyClasses = false;
+  @Input() noStyles: boolean;
+  @Input() scrollEl: Element | string;
+  @Input() parentClass = 'sticky-parent';
+  @Input() stickyChangeClass = 'sticky--change';
+  @Input() stickyChangeNumber: number;
+  @Input() stickyClass = 'sticky';
+  @Input() stickyOffset: number;
+  @Input() stuckClass = 'stucky';
+  @Input() useFixed: boolean;
+  @Input() useGetBoundingClientRect: boolean;
+  @Input() useStickyClasses = true;
+  @Input() verticalPosition: 'top' | 'bottom';
   @Output() sticky = new EventEmitter<boolean>();
   @Output() stuck = new EventEmitter<boolean>();
 
@@ -45,14 +48,10 @@ export class StickybitsDirective implements AfterContentInit, OnChanges, OnDestr
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    // const change = changes.stickybits;
-    // if (isPlatformBrowser(this.platformId) && change && !change.isFirstChange) {
-    //   if (change.currentValue) {
-    //     this.init();
-    //   } else {
-    //     this.destroy();
-    //   }
-    // }
+    if (isPlatformBrowser(this.platformId) && this.instance) {
+      this.destroy();
+      this.init();
+    }
   }
 
   ngOnDestroy() {
@@ -60,20 +59,24 @@ export class StickybitsDirective implements AfterContentInit, OnChanges, OnDestr
   }
 
   private init() {
-    // this.destroy();
     const element = this.elementRef.nativeElement as HTMLElement;
     if (element) {
       // setup stickybits
       this.instance = stickybits(element, {
-        parentClass: this.parentClass,
+        customStickyChangeNumber: this.stickyChangeNumber,
+        noStyles: this.noStyles,
         stickyBitStickyOffset: this.stickyOffset,
-        stickyChangeClass: this.changeClass,
+        scrollEl: this.scrollEl,
+        parentClass: this.parentClass,
         stickyClass: this.stickyClass,
         stuckClass: this.stuckClass,
-        useStickyClasses: true, // this.useStickyClasses,
-        verticalPosition: this.stickToBottom ? 'bottom' : 'top',
+        stickyChangeClass: this.stickyChangeClass,
+        useStickyClasses: this.useStickyClasses,
+        useFixed: this.useFixed,
+        useGetBoundingClientRect: this.useGetBoundingClientRect,
+        verticalPosition: this.verticalPosition,
       });
-      // observe for class changes to emit output events
+      // observe for CSS class changes to emit output events
       this.classListObserver = new MutationObserver((mutations: MutationRecord[]) => {
         mutations
           .filter(mutation => mutation.oldValue !== element.classList.value)
