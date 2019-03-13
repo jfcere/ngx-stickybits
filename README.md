@@ -1,4 +1,6 @@
 # ngx-stickybits
+[![version](https://img.shields.io/npm/v/ngx-stickybits.svg?style=flat)](https://www.npmjs.com/package/ngx-stickybits) [![npm](https://img.shields.io/npm/l/ngx-stickybits.svg)](https://opensource.org/licenses/MIT) [![dependencies Status](https://david-dm.org/jfcere/ngx-stickybits/status.svg?path=lib)](https://david-dm.org/jfcere/ngx-stickybits?path=lib) [![peerDependencies Status](https://david-dm.org/jfcere/ngx-stickybits/peer-status.svg?path=lib)](https://david-dm.org/jfcere/ngx-stickybits?path=lib&type=peer) [![downloads](https://img.shields.io/npm/dt/ngx-stickybits.svg)](https://www.npmjs.com/package/ngx-stickybits)
+
 Angular sticky directive using [Stickybits](https://github.com/dollarshaveclub/stickybits), a lightweight alternative to `position: sticky` polyfills.
 
 > :alarm_clock: The project is still a Work-In-Progress and may be subject to major changes.
