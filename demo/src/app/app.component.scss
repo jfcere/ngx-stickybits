@@ -23,8 +23,11 @@
   background: rgb(255, 60, 0);
 }
 
-.filler {
-  background: rgba(0,0,0,0.14);
+.grey {
+  background: rgb(204, 204, 204);
+}
+
+.some-sticky-filler {
   height: calc(100vh - 96px);
 
   .emoji {
@@ -40,6 +43,7 @@
   height: 80px;
   margin-bottom: 16px;
   transition: all 250ms ease-out;
+  width: 100%;
   z-index: 2;
 
   h1 {
@@ -54,7 +58,7 @@
   }
 }
 
-.filler,
+.some-sticky-filler,
 .some-sticky-parent,
 .some-sticky-event {
   color: white;

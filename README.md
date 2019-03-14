@@ -11,6 +11,7 @@ Angular sticky directive using [Stickybits](https://github.com/dollarshaveclub/s
 - [Configuration](#configuration)
 - [Usage](#usage)
 - [Browser Compatibility](#browser-compatibility)
+- [Quirks](#quirks)
 - [Demo application](#demo-application)
 - [Road map](#road-map)
 - [Contribution](#contribution)
@@ -87,7 +88,15 @@ When `useStickyClasses` is set to `true`, the following CSS classes will be appl
 
 ## Browser Compatibility
 
-`Stickybits` works in all modern browsers including Internet Explorer 9 and above. Please file and issue with browser compatibility quirks [here](https://github.com/dollarshaveclub/stickybits/issues).
+`Stickybits` works in modern browsers like a charm, when it turns to Internet Explorer it is often a total different story! Althought it tend to support IE 9 and above by using `position: fixed` the result not always what is expected. Please file and issue with browser compatibility quirks [here](https://github.com/dollarshaveclub/stickybits/issues).
+
+## Quirks
+
+I won't lie to you, getting an element sticky has always been a hard and painful task! Although `Stickybits` makes it _easier_ it is not always magic and sometime require some twists to make it works as desired. This section is dedicated to quirks and how to resolve common problematic behaviors using `stickybits` directive.
+
+#### verticalPosition = 'bottom'
+
+Setting `[verticalPosition]="'bottom'"` won't work out of the box, easiest way to fit it is to put the sticky parent element with `display: flex` and set the sticky element with `align-self: flex-end`.
 
 ## Demo Application
 
