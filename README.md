@@ -66,7 +66,7 @@ ngx-stickybits provides the `stickybits` directive to apply on element you want 
 | @Input() <br/> scrollEl | Element \| string | `window` | Desired scrolling element or DOM query selector |
 | @Input() <br/> parentClass | string | 'sticky-parent' | Applied CSS class on the parent of the sticky element |
 | @Input() <br/> stickyChangeClass | string | 'sticky--change' | Applied CSS class after the element is sticky for a certain duration of scroll - _By default this duration of scrolling is the height of the sticky element_ |
-| @Input() <br/> stickyChangeNumber | number | 0 | Description |
+| @Input() <br/> stickyChangeNumber | number | _sticky element height_ | Scroll duration for when `.sticky--change` is added can be modified by providing a number for this option |
 | @Input() <br/> stickyClass | string | 'sticky' | Applied CSS class on element when it is _sticky_ |
 | @Input() <br/> stuckClass | string | 'stuck' | Applied CSS class on element when it is _stuck_ |
 | @Input() <br/> stickyOffset | number | 0 | Desired offset from the top of the viewport to which the element will stick |
@@ -96,7 +96,7 @@ I won't lie to you, getting an element sticky has always been a hard and painful
 
 #### verticalPosition = 'bottom'
 
-Setting `[verticalPosition]="'bottom'"` won't work out of the box, easiest way to fit it is to put the sticky parent element with `display: flex` and set the sticky element with `align-self: flex-end`.
+Setting `[verticalPosition]="'bottom'"` won't work out of the box, easiest way to fix it is to put the sticky parent element with `display: flex` and set the sticky element with `align-self: flex-end`.
 
 ## Demo Application
 
