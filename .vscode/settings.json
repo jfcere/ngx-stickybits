@@ -1,4 +1,9 @@
 {
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+
   "files.trimTrailingWhitespace": true,
 
   "vsicons.presets.angular": true

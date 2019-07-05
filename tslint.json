@@ -8,9 +8,25 @@
   "rules": {
     "array-type": false,
     "arrow-parens": false,
+    "ban-types": false,
     "deprecation": {
       "severity": "warn"
     },
+    "component-class-suffix": true,
+    "contextual-lifecycle": true,
+    "directive-class-suffix": true,
+    "directive-selector": [
+      true,
+      "attribute",
+      "odq",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "odq",
+      "kebab-case"
+    ],
     "import-blacklist": [
       true,
       "rxjs/Rx"
@@ -49,6 +65,7 @@
     ],
     "no-non-null-assertion": true,
     "no-redundant-jsdoc": true,
+    "no-string-literal": false,
     "no-switch-case-fall-through": true,
     "no-use-before-declare": true,
     "no-var-requires": false,
@@ -56,31 +73,18 @@
       true,
       "as-needed"
     ],
+    "object-literal-shorthand": false,
     "object-literal-sort-keys": false,
-    "quotemark": [
-      true,
-      "single"
-    ],
-    "no-output-on-prefix": true,
-    "use-input-property-decorator": true,
-    "use-output-property-decorator": true,
-    "use-host-property-decorator": true,
-    "no-input-rename": true,
-    "no-output-rename": true,
-    "use-life-cycle-interface": true,
-    "use-pipe-transform-interface": true,
-    "component-class-suffix": true,
-    "directive-class-suffix": true,
-
-    /**
-     * added rules
-     */
     "ordered-imports": [
       true,
       {
         "import-sources-order": "case-insensitive",
         "named-imports-order": "case-insensitive"
       }
+    ],
+    "quotemark": [
+      true,
+      "single"
     ],
     "trailing-comma": [
       true,
@@ -89,6 +93,19 @@
         "singleline": "never"
       }
     ],
+    "no-host-metadata-property": true,
+    "no-input-rename": true,
+    "no-inputs-metadata-property": true,
+    "no-output-native": false,
+    "no-output-on-prefix": true,
+    "no-output-rename": true,
+    "no-outputs-metadata-property": true,
+    "no-unused-variable": true,
+    "template-banana-in-box": true,
+    "template-no-negated-async": true,
+    "use-lifecycle-interface": true,
+    "use-pipe-transform-interface": true,
+    "variable-name": false,
 
     /**
      * tslint-eslint-rules
